@@ -42,6 +42,12 @@ chmod +x install.sh
 ```
 ./install.sh
 ```
+3. Execute the system command in your terminal.
+```bash
+ActivateBuddy
+or
+ActivateBuddyWifi
+```
 
 ## Credits to original developers
 >[Mantis Gamepad Pro](https://mantispro.app/)
