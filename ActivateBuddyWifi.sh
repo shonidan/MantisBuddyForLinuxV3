@@ -11,8 +11,12 @@ adb kill-server
 adb devices
 adb disconnect
 
-
 function detect(){
+
+    if  [ `adb shell getprop ro.build.version.release` -le 10 ]
+    then wirelessDebuggingAndroidCheck
+        return
+    fi
 
     if [ `adb devices|grep "unauthorized"|wc -l` -ge 1 ]
     then phoneUnauthorized
@@ -79,7 +83,7 @@ function tryWifiConnect(){
 function phoneNotFound(){
 
     titleStr='Android Device Not Found!!'
-    descriptionStr='Make sure your devices USB Debugging is On. Reconnect your phone to PC via USB cable and retry'
+    descriptionStr='Make sure your devices USB Debugging is On. Reconnect your phone to PC via USB cable and retry.'
     echo -e "$titleStr,\n$descriptionStr"
     notify-send -t 0 "$titleStr" "$descriptionStr"
 
@@ -89,9 +93,18 @@ function phoneNotFound(){
 function phoneUnauthorized(){
 
     titleStr='Tap Allow button on device USB Debugging popup window and retry.'
-    descriptionStr='If popup not shown, click Cancel and run me again..'
+    descriptionStr='If popup not shown, click Cancel and run me again.'
     echo -e "$titleStr,\n$descriptionStr"
     notify-send -t 0 "$titleStr" "$descriptionStr"
+
+    return
+}
+
+function wirelessDebuggingAndroidCheck(){
+
+    titleStr="The android version don't support wireless debugging."
+    echo -e "$titleStr"
+    notify-send -t 0 "$titleStr"
 
     return
 }
