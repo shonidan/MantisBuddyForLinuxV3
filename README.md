@@ -30,5 +30,18 @@ Run the script.
 
 ⚠️ **Note:** If and when a popup window prompts on your device, tap **Allow/Trust/OK** button along with **Allow always for this Computer**.
 
+## Install option
+
+⚠️ You must have adb installed on your linux distribution.
+
+1. Assign execute permission.
+```
+chmod +x install.sh
+```
+2. Run the script.
+```
+./install.sh
+```
+
 ## Credits to original developers
 >[Mantis Gamepad Pro](https://mantispro.app/)
