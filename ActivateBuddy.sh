@@ -31,8 +31,6 @@ function detect(){
     fi
 }
 
-
-
 function inject(){
 
     $DIR/adb shell find $dirPath/buddyNew.sh
