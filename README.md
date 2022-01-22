@@ -51,7 +51,7 @@ or
 ActivateBuddyWifi
 ```
 
-##Known issues
+## Known issues
 >Wireless debugging option break the process in android 11
 
 ## Credits to original developers
