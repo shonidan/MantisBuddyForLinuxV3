@@ -1,7 +1,8 @@
 # MantisBuddyForLinuxV2
 
 MantisBuddyForLinuxV2 is a script modified from the original [source](https://mantispro.app/buddy/) for linux.
-⚠️ Tested in android 10
+
+⚠️ Tested only in android 10
 
 ## Steps
 
