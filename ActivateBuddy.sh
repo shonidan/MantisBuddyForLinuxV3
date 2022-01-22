@@ -41,7 +41,7 @@ function inject(){
          echo -e "$titleStr"
 
     else $DIR/adb shell sh $dirPath/buddyNew.sh
-         succes_msg_1='Activation Complete!!'
+         succes_msg_1='🎮 Activation Complete!'
          succes_msg_2='Please Launch "Mantis Gamepad Pro", then open MantisBuddy Screen and check if Activated.\nIf Activation fails after Unplugging, please run ActivateBuddyWifi.sh.'
          notify-send -t 0 "$succes_msg_1" "$succes_msg_2"
          echo -e "$succes_msg_1,\n$succes_msg_2"
