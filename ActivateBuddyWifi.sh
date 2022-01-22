@@ -12,8 +12,6 @@ adb devices
 adb disconnect
 
 
-BTN_RETURNED=""
-
 function detect(){
 
     if [ `adb devices|grep "unauthorized"|wc -l` -ge 1 ]
@@ -42,7 +40,8 @@ function inject(){
 
     if [ $? -eq 1 ]
     then titleStr="Please Launch App 'Mantis Gamepad Pro' on your Device and click Retry."
-         btnReturned "$titleStr" inject
+         echo -e "$titleStr"
+         notify-send -t 0 "$titleStr"
     else
 
         tryWifiConnect
@@ -51,6 +50,7 @@ function inject(){
 
          succes_msg_1='Activation Complete!!'
          succes_msg_2='Please Launch "Mantis Gamepad Pro", then open MantisBuddy Screen and check if Activated.\nIf Activation fails after Unplugging, please run ActivateBuddyWifi.sh.'
+         echo -e "$succes_msg_1,\n$succes_msg_2"
          notify-send -t 0 "$succes_msg_1" "$succes_msg_2"
     fi
     exit
@@ -65,7 +65,8 @@ function tryWifiConnect(){
 
     if [ $? != 0 ]
     then titleStr="Failed, please ensure WIFI on your phone is connected and in the same LAN(local network) with your PC."
-         btnReturned "$titleStr" tryWifiConnect
+         echo -e "$titleStr"
+         notify-send -t 0 "$titleStr"
     fi
 
     $DIR/adb tcpip $adb_port
@@ -77,19 +78,20 @@ function tryWifiConnect(){
 
 function phoneNotFound(){
 
-
-    titleStr="Android Device Not Found!! \n\n1. Make sure your devices's USB Debugging is On; \n2. Reconnect your phone to PC via USB cable\n3. Click Retry."
-
-    btnReturned "$titleStr" detect
+    titleStr='Android Device Not Found!!'
+    descriptionStr='Make sure your devices USB Debugging is On. Reconnect your phone to PC via USB cable and retry'
+    echo -e "$titleStr,\n$descriptionStr"
+    notify-send -t 0 "$titleStr" "$descriptionStr"
 
     return
 }
 
 function phoneUnauthorized(){
 
-    titleStr="Tap Allow button on device's USB Debugging popup window and click Retry. \n \n If popup not shown, click Cancel and run me again.."
-
-    btnReturned "$titleStr" detect
+    titleStr='Tap Allow button on device USB Debugging popup window and retry.'
+    descriptionStr='If popup not shown, click Cancel and run me again..'
+    echo -e "$titleStr,\n$descriptionStr"
+    notify-send -t 0 "$titleStr" "$descriptionStr"
 
     return
 }
