@@ -13,8 +13,8 @@ MantisBuddyForLinuxV3 is a script modified from the original [source](https://ma
 2. Now Connect your Device to your Linux computer via USB Cable.
 3. Clone the repository and enter into the folder.
 ```
-git clone https://github.com/C0MODIN/MantisBuddyForLinuxV2.git
-cd MantisBuddyForLinuxV2
+git clone https://github.com/C0MODIN/MantisBuddyForLinuxV3.git
+cd MantisBuddyForLinuxV3
 ```
 4. Assign execute permission.
 ```
