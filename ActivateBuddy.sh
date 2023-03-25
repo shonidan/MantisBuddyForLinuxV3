@@ -36,7 +36,7 @@ inject() {
         titleStr="Please Launch App 'Mantis Gamepad Pro' on your Device and click Retry."
         btnReturned "$titleStr" inject
     else
-        success_msg="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run GamepadProWifiBuddy.command."
+        success_msg="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run ActivateBuddy.sh"
         adb shell sh "$dirPath/buddyNew.sh"
         zenity --info --title="MantisBuddy Activation Tool" --text="$success_msg" --ok-label=Ok
         rm -r output.txt
@@ -45,7 +45,7 @@ inject() {
 }
 
 phoneNotFound() {
-    titleStr="Android Device Not Found!! \n\n1. Make sure your devices's USB Debugging is On and unlock; \n2. Reconnect your phone to PC via USB cable\n3. Click Retry."
+    titleStr="Android Device Not Found!! \n\n1. Make sure unlock your device an USB USB Debugging is On; \n2. Reconnect your phone to PC via USB cable\n3. Click Retry."
     btnReturned "$titleStr" detect
 }
 
