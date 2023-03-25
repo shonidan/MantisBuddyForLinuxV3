@@ -1,8 +1,6 @@
-# MantisBuddyForLinuxV2
+# MantisBuddyForLinuxV3
 
-MantisBuddyForLinuxV2 is a script modified from the original [source](https://mantispro.app/buddy/) for linux.
-
-⚠️ Tested only in android 10 and 11,
+MantisBuddyForLinuxV3 is a script modified from the original [source](https://mantispro.app/buddy/) for linux.
 
 ## Steps
 
@@ -50,9 +48,3 @@ ActivateBuddy
 or
 ActivateBuddyWifi
 ```
-
-## Known issues
->Wireless debugging option break the process in android 11.
-
-## Credits to original developers
->[Mantis Gamepad Pro](https://mantispro.app/)
