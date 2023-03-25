@@ -4,6 +4,8 @@ MantisBuddyForLinuxV3 is a script modified from the original [source](https://ma
 
 ## Steps
 
+⚠️ You must have adb installed on your linux distribution.
+
 1. Make sure USB Debugging is enabled on your device. (Needs to be done only once).
    * Go to Settings -> About -> **Repeatedly Tap on Build Number**(or MIUI Version) until it displays you’re a developer.
    * Now Go one step back and Open Developer Settings. Generally found inside System or Additional Settings.
@@ -18,7 +20,7 @@ cd MantisBuddyForLinuxV3
 ```
 4. Assign execute permission.
 ```
-chmod +x ActivateBuddy.sh ActivateBuddyWifi.sh adb
+chmod +x ActivateBuddy.sh
 ```
 
 ## Usage
@@ -32,8 +34,6 @@ Run the script.
 
 ## Install option
 
-⚠️ You must have adb installed on your linux distribution.
-
 1. Assign execute permission.
 ```
 chmod +x install.sh
@@ -45,6 +45,4 @@ chmod +x install.sh
 3. Execute the system command in your terminal.
 ```bash
 ActivateBuddy
-or
-ActivateBuddyWifi
 ```
