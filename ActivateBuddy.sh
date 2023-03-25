@@ -36,15 +36,16 @@ inject() {
         titleStr="Please Launch App 'Mantis Gamepad Pro' on your Device and click Retry."
         btnReturned "$titleStr" inject
     else
+        success_msg="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run GamepadProWifiBuddy.command."
         adb shell sh "$dirPath/buddyNew.sh"
-        zenity --info --title="MantisBuddy Activation Tool" --text="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run GamepadProWifiBuddy.command."
+        zenity --info --title="MantisBuddy Activation Tool" --text="$success_msg" --ok-label=Ok
         rm -r output.txt
     fi
     exit
 }
 
 phoneNotFound() {
-    titleStr="Android Device Not Found!! \n\n1. Make sure your devices's USB Debugging is On; \n2. Reconnect your phone to PC via USB cable\n3. Click Retry."
+    titleStr="Android Device Not Found!! \n\n1. Make sure your devices's USB Debugging is On and unlock; \n2. Reconnect your phone to PC via USB cable\n3. Click Retry."
     btnReturned "$titleStr" detect
 }
 
@@ -54,7 +55,7 @@ phoneUnauthorized() {
 }
 
 btnReturned() {
-    BTN_RETURNED=$(zenity --question --title=$msgTitle --text="$1" --ok-label=Retry --cancel-label=Quit --default-cancel)
+    BTN_RETURNED=$(zenity --question --title=$msgTitle --text="$1" --ok-label=Retry --cancel-label=Quit)
     OUTPUT=$?
     if [ "$OUTPUT" -eq 0 ]
     then detect
