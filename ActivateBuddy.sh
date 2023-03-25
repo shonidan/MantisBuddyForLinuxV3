@@ -27,7 +27,6 @@ detect() {
         inject
         return
     fi
-    rm output.txt
 }
 
 inject() {
@@ -39,6 +38,7 @@ inject() {
     else
         adb shell sh "$dirPath/buddyNew.sh"
         zenity --info --title="MantisBuddy Activation Tool" --text="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run GamepadProWifiBuddy.command."
+        rm -r output.txt
     fi
     exit
 }
@@ -59,6 +59,7 @@ btnReturned() {
     if [ "$OUTPUT" -eq 0 ]
     then detect
     elif [ "$OUTPUT" -eq 1 ]
+    rm -r output.txt
     then exit
     else return
     fi
