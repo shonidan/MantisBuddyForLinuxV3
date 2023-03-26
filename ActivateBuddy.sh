@@ -10,21 +10,21 @@ adb disconnect
 BTN_RETURNED=""
 
 detect() {
-    adb devices | sed -n '2p' > output.txt | sed -n '1p' output.txt > output.txt
-    statusDevice=$(awk 'NR==1{print $NF}' output.txt)
+    adb devices | sed -n '2p' > /tmp/mantis_activate | sed -n '1p' /tmp/mantis_activate > /tmp/mantis_activate
+    statusDevice=$(awk 'NR==1{print $NF}' /tmp/mantis_activate)
     echo $statusDevice
     if [ "$statusDevice" = "unauthorized" ]
-    then phoneUnauthorized
+        then phoneUnauthorized
         return
     fi
 
     if [ -z $statusDevice ]
-    then phoneNotFound
+        then phoneNotFound
         return
     fi
 
-    if [ "$statusDevice" = "device" ]; then
-        inject
+    if [ "$statusDevice" = "device" ]
+        then inject
         return
     fi
 }
@@ -39,7 +39,7 @@ inject() {
         success_msg="Activation Complete!!\nPlease Launch 'Mantis Gamepad Pro', then open MantisBuddy Screen and check if Activated. If Activation fails after Unplugging, please run ActivateBuddy.sh"
         adb shell sh "$dirPath/buddyNew.sh"
         zenity --info --title="MantisBuddy Activation Tool" --text="$success_msg" --ok-label=Ok
-        rm -r output.txt
+        rm -r /tmp/mantis_activate
     fi
     exit
 }
@@ -60,7 +60,7 @@ btnReturned() {
     if [ "$OUTPUT" -eq 0 ]
     then detect
     elif [ "$OUTPUT" -eq 1 ]
-    rm -r output.txt
+    rm -r /tmp/mantis_activate
     then exit
     else return
     fi
