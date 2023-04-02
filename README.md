@@ -20,14 +20,14 @@ cd MantisBuddyForLinuxV3
 ```
 4. Assign execute permission.
 ```
-chmod +x ActivateBuddy.sh
+chmod +x mantis_activate.sh
 ```
 
 ## Usage
 
 Run the script.
 ```
-./ActivateBuddy.sh
+./mantis_activate.sh
 ```
 
 ⚠️ **Note:** If and when a popup window prompts on your device, tap **Allow/Trust/OK** button along with **Allow always for this Computer**.
@@ -44,5 +44,5 @@ chmod +x install.sh
 ```
 3. Execute the system command in your terminal.
 ```bash
-ActivateBuddy
+mantis_activate
 ```
