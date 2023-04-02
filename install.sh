@@ -1,5 +1,5 @@
 #!/bin/bash
-ActivateBuddy="ActivateBuddy.sh"
-chmod +x "$ActivateBuddy"
-sudo cp ActivateBuddy.sh /usr/bin/ActivateBuddy
+mantis_activate="ActivateBuddy.sh"
+chmod +x "$mantis_activate"
+sudo cp ActivateBuddy.sh /usr/bin/mantis_activate
 echo -e "Installation succesfully"
